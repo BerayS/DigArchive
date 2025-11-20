@@ -11,71 +11,95 @@
 
 }*/
 
-header {
-    width:100%;
-    height:90px;
+
+nav i {
+    font-size:24px;
+}
+
+nav {
+    background-color: #fff;
+    box-shadow:3px 3px 5px rgba(0,0,0,0.1);
+    height:80px;
     display:flex;
-    justify-content: space-between;
+}
+
+nav ul {
+    width:100%;
+    list-style:none;
+    display:flex;
+    justify-content: flex-end;
     align-items:center;
 }
 
-header .logo {
+nav ul li a img {
     width:70px;
-    margin-left:30px;
+    height:100%;
 }
 
-.logo img {
-    width:100%;
-}
-
-header .menu {
-    width:390px;
-    margin-right:60px;
-}
-
-header .menu nav{
+nav a {
+    height:100%;
+    padding: 0 10px;
     display:flex;
-    justify-content:space-between;
+    align-items:center;
+    text-decoration:none;
+    color:black;
 }
 
 
+nav li:first-child {
+    margin-right:auto;
+}
 
-.dropdown {
+nav ul:last-child {
+    padding-right:40px;
+}
+
+.sidebar {
+    position:Fixed;
+    top:0;
+    right:0;
+    height:100vh;
+    width:250px;
+    z-index:999;
+    background-color: rgba(255, 255, 255, 0.408);
+    backdrop-filter: blur(10px);
+    box-shadow:-10px 0 10px rgba(0,0,0,0.1);
     display:none;
-    position:absolute;
-    padding:10px;
-    max-width:170px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    background:#fff;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content: flex-start;
 }
 
-.dropdown li {
-    padding:10px 5px;
-}
-
-.dropdown-toggle:hover .dropdown{
-    display:block;
-
-}
-
-
-nav ul {
+.sidebar li {
+    height:30px;
+    padding:5px 0;
     display:flex;
+}
+
+.sidebar li:first-child {
+    margin-bottom:30px;
     width:100%;
-    justify-content:space-around;
+    display:flex;
+    align-items:center;
+    justify-content: flex-end;
 }
 
-nav ul li {
-    list-style-type: none;
+
+.menuButton {
+    display:none;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color:#333;
-    font-family:'Montserrat';
+@media (max-width:800px) {
+    .hideOnMobile {display:none}
+
+    .menuButton {display:block}
 }
 
+@media (max-width:400px) {
+    .sidebar {
+        width:100%;
+    }
+}
 
 .section-a {
     width:100%;

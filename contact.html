@@ -13,20 +13,24 @@
 </head>
 <body>
     <!-- Header for logo and menu -->
-       <header>
-        <div class="logo">
-            <a href="index.html"><img src="images/logo.png" alt="Digital Archive"></a>
-        </div>
-        <div class="menu">
-            <nav>
-                <ul>
-                    <li><a href="index.html">НАЧАЛО</a></li>
-                    <li><a href="about.html">ЗА НАС </a></li>
-                    <li><a href="equipment.html">ОБОРУДВАНЕ</a></li>
-                    <li><a href="contact.html">КОНТАКТИ</a></li>
-                </ul>
-            </nav>
-        </div>
+           <header>
+     <nav>
+         <ul class="sidebar">
+             <li onclick=hideSidebar()><a href="#"><i class="fa-solid fa-xmark"></i></a></li>
+              <li><a href="index.html">НАЧАЛО</a></li>
+            <li><a href="about.html">ЗА НАС</a></li>
+            <li><a href="equipment.html">ОБОРУДВАНЕ</a></li>
+            <li><a href="contact.html">КОНТАКТИ</a></li>
+        </ul>
+        <ul>
+            <li><a href="#"><img src="images/logo.png" alt=""></a></li>
+            <li class="hideOnMobile"><a href="index.html">НАЧАЛО</a></li>
+            <li class="hideOnMobile"><a href="about.html">ЗА НАС</a></li>
+            <li class="hideOnMobile"><a href="equipment.html">ОБОРУДВАНЕ</a></li>
+            <li class="hideOnMobile"><a href="contact.html">КОНТАКТИ</a></li>
+            <li class="menuButton" onclick=showSidebar()><a href="#"><i class="fa-solid fa-bars"></i></a></li>
+        </ul>
+    </nav>
     </header>
     <!-- Section A -->
       <section class="section-a">

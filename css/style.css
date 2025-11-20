@@ -15,69 +15,95 @@ a {
 
 /* Styling for header and menu elements */
 
-header {
-    width:100%;
-    height:90px;
+nav i {
+    font-size:24px;
+}
+
+nav {
+    background-color: #fff;
+    box-shadow:3px 3px 5px rgba(0,0,0,0.1);
+    height:80px;
     display:flex;
-    justify-content: space-between;
+}
+
+nav ul {
+    width:100%;
+    list-style:none;
+    display:flex;
+    justify-content: flex-end;
     align-items:center;
 }
 
-header .logo {
+nav ul li a img {
     width:70px;
-    margin-left:30px;
+    height:100%;
 }
 
-.logo img {
-    width:100%;
-}
-
-header .menu {
-    width:390px;
-    margin-right:60px;
-}
-
-header .menu nav{
+nav a {
+    height:100%;
+    padding: 0 10px;
     display:flex;
-    justify-content:space-between;
+    align-items:center;
+    text-decoration:none;
+    color:black;
 }
 
 
+nav li:first-child {
+    margin-right:auto;
+}
 
-.dropdown {
+nav ul:last-child {
+    padding-right:40px;
+}
+
+.sidebar {
+    position:Fixed;
+    top:0;
+    right:0;
+    height:100vh;
+    width:250px;
+    z-index:999;
+    background-color: rgba(255, 255, 255, 0.408);
+    backdrop-filter: blur(10px);
+    box-shadow:-10px 0 10px rgba(0,0,0,0.1);
     display:none;
-    position:absolute;
-    padding:10px;
-    max-width:170px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-    background:#fff;
+    flex-direction:column;
+    align-items:flex-start;
+    justify-content: flex-start;
 }
 
-.dropdown li {
-    padding:10px 5px;
-}
-
-.dropdown-toggle:hover .dropdown{
-    display:block;
-
-}
-
-
-nav ul {
+.sidebar li {
+    height:30px;
+    padding:5px 0;
     display:flex;
+}
+
+.sidebar li:first-child {
+    margin-bottom:30px;
     width:100%;
-    justify-content:space-around;
+    display:flex;
+    align-items:center;
+    justify-content: flex-end;
 }
 
-nav ul li {
-    list-style-type: none;
+.sidebar a {
 }
 
-nav ul li a {
-    text-decoration: none;
-    color:#333;
-    font-family:'Montserrat';
+.menuButton {
+    display:none;
+}
+
+@media (max-width:800px) {
+    .hideOnMobile {display:none}
+
+    .menuButton {display:block}
+}
+
+@media (max-width:400px) {
+    .sidebar {
+        width:100%;
+    }
 }
 
 /* Styling for Section A */
@@ -333,297 +359,50 @@ footer img {
     font-weight:600;
 }
 
-/* Responsive / Mobile-friendly styles */
-
-/* Tablet and small laptops */
-@media (max-width: 900px) {
-    header {
-        height:70px;
-        padding:0 10px;
-    }
-
-    header .logo {
-        width:60px;
-        margin-left:15px;
-    }
-
-    header .menu {
-        width:auto;
-        margin-right:15px;
-    }
-
-    header .menu nav {
-        gap:10px;
-        align-items:center;
-        flex-wrap:wrap;
-    }
-
-    nav ul {
-        justify-content:space-between;
-    }
-
-    .section-a {
-        height:60vh;
-        padding:0 20px;
-    }
-
-    .section-title {
-        font-size:36px;
-    }
-
-    .section-subtitle {
-        font-size:16px;
-    }
-
-    .title-wrap button {
-        padding:11px 16px;
-    }
-
-    .section-b .wrapper {
-        padding:20px 0;
-        gap:20px;
-    }
-
-    .section-b .wrapper .image {
-        width:50%;
-    }
-
-    .section-b .text-content {
-        width:320px;
-        padding-left:30px;
-    }
-
-    .section-d {
-        height:auto;
-    }
-
-    .section-d .wrapper {
-        width:95%;
-    }
-
-    .section-d .wrapper .text-content {
-        padding-left:40px;
-    }
-
-    footer img {
-        width:90%;
-    }
+.topnav .icon {
+  display: none;
 }
 
-/* Mobile phones */
+.topnav a.active {
+  background-color: #04AA6D;
+  color: white;
+}
+
+
+/* Responsive Styling */
+
 @media (max-width: 600px) {
-    /* Header: stack logo + menu */
-    header {
-        flex-direction:row;
-        align-items:center;
-        justify-content:space-between;
-        height:fit-content;
-    }
 
-    header .logo {
-        width:100px;
-        margin-left:12px;
-    }
-
-    header .menu {
-        /* margin-right:12px; */
-        width:auto;
-    }
-
-    header .menu nav{
-        width:100%;
-    }
-
-    /* Make nav vertical and touch-friendly */
-    nav ul {
-        flex-direction:column;
-        align-items:flex-end;
-        gap:6px;
-    }
-
-    nav ul li {
-        padding:6px 10px;
-        width:100%;
-        text-align:right;
-    }
-
-    /* Dropdowns: make them participate in document flow on small screens so they are reachable */
-    .dropdown {
-        position:static;
-        display:none;
-        box-shadow:none;
-        margin-top:6px;
-        background:transparent;
-        padding:0;
-        max-width:100%;
-    }
-
-    .dropdown li {
-        padding:8px 0;
-        background:#fff;
-        color:#333;
-        border-radius:6px;
-        margin-bottom:6px;
-        box-shadow:0 1px 3px rgba(0,0,0,0.08);
-    }
-
-    .dropdown-toggle:hover .dropdown,
-    .dropdown-toggle:focus-within .dropdown {
-        display:block;
-    }
-
-    /* Hero */
-    .section-a {
-        height:50vh;
-        padding:0 16px;
+    .topnav a:not(:first-child) {
+        display: none;
     }
     
-    .section-b .wrapper {
-        /* background:blue; */
-        max-width:100%;
-    }
-    
-    .section-title {
-        font-size:28px;
-        text-align:center;
-        /* background:red; */
-    }
-    
-    .section-subtitle {
-        font-size:14px;
-        padding:0 8px;
-    }
-    
-    .title-wrap button {
-        width:160px;
-        padding:10px 14px;
-        margin-top:14px;
-    }
-    
-    /* Section B: stack vertically */
-    
-    .section-b {
-        width:100vw !important;
-    }
-    
-    .section-b .wrapper {
-        width:100%;
-        flex-direction:column;
-        align-items:center;
-        justify-content:center;
-        padding:20px 10px;
-    }
-    
-    .section-b .wrapper .image {
-        width:100%;
-        height:40vh;
-        margin-bottom:14px;
-        background-position:center;
-
-    }
-    
-    .section-b .text-content {
-        width:100%;
-        padding-left:0;
-        text-align:left;
-    }
-    
-    .section-b .text-content .text-title {
-        font-size:22px;
+    .topnav a.icon {
+        float: right;
+        display: block;
     }
 
-    .section-b .text-content button {
-        /* width:140px; */
-    }
-
-    /* Cards: stack */
-    .section-c {
-        height:fit-content;
-        width:100vw;
-        padding-top:50px;   
-    }
-
-    .section-c .cards {
-        flex-direction:column;
-        height:fit-content;
-        gap:20px;
-        width:100%;
-    }
-
-    .section-c .cards .card {
-        width:100%;
-        text-align:center;
-    }
-
-    .cards .card i {
-        font-size:48px;
-    }
-
-    /* Section D: stack and center */
-    .section-d {
-        height:auto;
-        padding:20px 0;
-    }
-
-    .section-d .wrapper {
-        flex-direction:column;
-        align-items:center;
-        text-align:center;
-        width:95%;
-    }
-
-    .section-d .image {
-        width:100%;
-        height:38vh;
-        background-position:center;
-    }
-
-    .section-d .wrapper .text-content {
-        padding-left:0;
-        padding-top:18px;
-    }
-
-    .section-d .text-content ul li {
-        padding-bottom:16px;
-    }
-
-    /* Footer */
-    footer {
-        /* padding:40px 12px 20px; */
-    }
-
-    .footer-text {
-        font-size:13px;
-        /* padding:12px 6px 30px; */
-    }
-
-    .bottom-footer {
-        height:48px;
-        font-size:13px;
-    }
 }
 
-/* Very small devices */
-@media (max-width: 420px) {
-    .section-title {
-        font-size:22px;
+@media screen and (max-width: 600px) {
+    header {
+        display:block !important;
+        background:blue;
+        padding-bottom:0;
+        margin:0;
+    }
+    .topnav.responsive {
+        position: relative;
+        background:red;
     }
 
-    .section-subtitle {
-        font-size:13px;
+    .topnav.responsive a.icon {
+        background:Blue;
+        position: absolute;
     }
 
-    .title-wrap button {
-        width:140px;
-        padding:10px;
-    }
-
-    .section-b .text-content .text-title {
-        font-size:20px;
-    }
-
-    nav ul li {
-        text-align:right;
-        padding-right:8px;
+    .topnav.responsive a {
+       
+        display: block;
     }
 }
